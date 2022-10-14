@@ -42,7 +42,13 @@ class TodolistCommands(commands.Cog):   # Skeleton of 'TodolistCommands' class
         return
 
     @commands.command(name="createList")
-    async def create_list(self, ctx):
+    async def create_list(self, ctx, arg):
+        filename: str = arg
+        try:
+            with open(filename, "x"):
+                await ctx.send("Created file named " + filename + "!")
+        except FileExistsError:
+            await ctx.send("File with this name already exists!")
         return
 
     @commands.command(name="removeList")
