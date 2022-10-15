@@ -11,16 +11,14 @@ class Config(commands.Cog):
         self.client = client
 
     @commands.command(name="prefix")  # I have no idea if this works
-    async def prefix(self, ctx):
+    async def prefix(self, ctx, arg):
         """
         Changes 'prefix' value in the config file
         :param ctx:
         :return:
         """
         if ctx.message.author.guild_permission.administrator:
-            message: str = ctx.message.content
-            message.replace(prefix + "prefix", "")
-            message.replace(" ", "")
+            message: str = arg
             try:
                 with open("../config/config", "r") as config_file:
                     lines = config_file.readlines()
@@ -38,15 +36,14 @@ class Config(commands.Cog):
             ctx.message.channel.send("This command requires admin perms")
 
     @commands.command(name="status")  # I have no idea if this works
-    async def status(self, ctx):
+    async def status(self, ctx, arg):
         """
         Changes 'status' value in the config file
         :param ctx:
         :return:
         """
         if ctx.message.author.guild_permission.administrator:
-            message: str = ctx.message.content
-            message.replace(prefix + "status", "")
+            message: str = arg
             try:
                 with open("../config/config", "r") as config_file:
                     lines = config_file.readlines()
