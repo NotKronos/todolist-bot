@@ -14,6 +14,7 @@ class Config(commands.Cog):
     async def prefix(self, ctx, arg):
         """
         Changes 'prefix' value in the config file
+        :param arg:
         :param ctx:
         :return:
         """
@@ -39,6 +40,7 @@ class Config(commands.Cog):
     async def status(self, ctx, arg):
         """
         Changes 'status' value in the config file
+        :param arg:
         :param ctx:
         :return:
         """
