@@ -14,6 +14,8 @@ class Config(commands.Cog):
     async def prefix(self, ctx):
         """
         Changes 'prefix' value in the config file
+        :param ctx:
+        :return:
         """
         if ctx.message.author.guild_permission.administrator:
             message: str = ctx.message.content
@@ -38,7 +40,9 @@ class Config(commands.Cog):
     @commands.command(name="status")  # I have no idea if this works
     async def status(self, ctx):
         """
-        Changes 'prefix' value in the config file
+        Changes 'status' value in the config file
+        :param ctx:
+        :return:
         """
         if ctx.message.author.guild_permission.administrator:
             message: str = ctx.message.content

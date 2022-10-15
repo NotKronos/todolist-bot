@@ -8,6 +8,7 @@ def get_config():
     """
     Get default configs from config/config
     If a setting is missing in the config set it to a default value
+    :return:
     """
     prefix: bool = False
     status: bool = False
@@ -54,6 +55,7 @@ def get_token() -> str:
     """
     Returns token as string
     Token should be located in token/.token
+    :return:
     """
     try:
         token_file = open("token/.token", "r")
