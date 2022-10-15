@@ -64,7 +64,7 @@ def get_token() -> str:
         print("Error reading token")
 
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.typing = False
 intents.presences = False
 
