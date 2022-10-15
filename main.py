@@ -1,4 +1,5 @@
 import discord
+
 from discord.ext import commands
 
 config: list[str] = ["", ""]
@@ -65,10 +66,15 @@ def get_token() -> str:
 
 
 intents = discord.Intents.all()
-intents.typing = False
-intents.presences = False
+intents.typing = True
+intents.presences = True
 
 client = commands.Bot(command_prefix=config[0], intents=intents)
+
+
+@client.event
+async def on_ready():
+    print("Logged in as {0.user}".format(client))
 
 token = get_token()
 if token.isspace():  # exit if token is empty
