@@ -59,8 +59,10 @@ def get_token() -> str:
     :return:
     """
     try:
-        token_file = open("token/.token", "r")
-        return token_file.readline()
+        with open("token/.token", "r") as token_file:
+            return token_file.readline()
+    except FileNotFoundError:
+        print("Token file does not exist")
     except IOError:
         print("Error reading token")
 
